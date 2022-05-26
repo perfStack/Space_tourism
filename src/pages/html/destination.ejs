@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- partials/starterHead.html -->
+    <%- include ./partials/starterHead.ejs %>
+    <!--  -->
+
+    <!-- prettier-ignore -->
+    <% const fileNameIndentifier = 'pageDestination';
+    for (const cssFilePath of htmlWebpackPlugin.files.css) { 
+    if (cssFilePath.includes(fileNameIndentifier)) { _%>
+    <link href="<%= cssFilePath %>" rel="stylesheet" />
+    <% }} _%>
+    <!-- prettier-ignore -->
+    <% for (const jsFilePath of htmlWebpackPlugin.files.js) { 
+    if (jsFilePath.includes(fileNameIndentifier)) { _%>
+    <script defer src="<%= jsFilePath %>"></script>
+    <% }} _%>
+  </head>
+  <body class="body body--destination">
+    <!-- partials/headerStart.html -->
+    <%- include ./partials/headerStart.ejs %>
+    <li class="header__nav-list__item nav-text">
+      <a href="../../index.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">00</span
+          ><span class="header__nav-list__content">home</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text active">
+      <a
+        href="destination.html"
+        class="header__nav-list__item-link"
+      >
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">01</span
+          ><span class="header__nav-list__content">destination</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text">
+      <a href="crew.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">02</span
+          ><span class="header__nav-list__content">crew</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text">
+      <a href="technology.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">03</span
+          ><span class="header__nav-list__content">technology</span>
+        </div>
+      </a>
+    </li>
+    <!-- partials/headerEnd.html -->
+    <%- include ./partials/headerEnd.ejs %>
+
+    <main class="main destination">
+      <div class="main-cont destination__cont">
+        <div class="destination__heading-cont">
+          <p class="destination__heading section__heading">
+            <span class="destination__heading-num section__heading-num"
+              >01</span
+            >
+            Pick your destination
+          </p>
+        </div>
+
+        <div class="destination__main-cont">
+          <div class="destination__img-cont">
+            <picture
+              class="destination__article__picture destination__picture--moon"
+            >
+              <source
+                srcset="<%= require('/src/assets/img/destination/image-moon.webp') %>"
+                type="image/webp"
+              />
+              <img
+                class="destination__article__img"
+                src="<%= require('/src/assets/img/destination/image-moon.png') %>"
+                alt="whole moon photo"
+              />
+            </picture>
+            <picture
+              class="destination__article__picture destination__picture--mars hidden"
+            >
+              <source
+                srcset="<%= require('/src/assets/img/destination/image-mars.webp') %>"
+                type="image/webp"
+              />
+              <img
+                class="destination__article__img"
+                src="<%= require('/src/assets/img/destination/image-mars.png') %>"
+                alt="picture of mars"
+              />
+            </picture>
+            <picture
+              class="destination__article__picture destination__picture--europa hidden"
+            >
+              <source
+                srcset="<%= require('/src/assets/img/destination/image-europa.webp') %>"
+                type="image/webp"
+              />
+              <img
+                class="destination__article__img"
+                src="<%= require('/src/assets/img/destination/image-europa.png') %>"
+                alt="picture of europa"
+              />
+            </picture>
+            <picture
+              class="destination__article__picture destination__picture--titan hidden"
+            >
+              <source
+                srcset="<%= require('/src/assets/img/destination/image-titan.webp') %>"
+                type="image/webp"
+              />
+              <img
+                class="destination__article__img"
+                src="<%= require('/src/assets/img/destination/image-titan.png') %>"
+                alt="whole moon photo"
+              />
+            </picture>
+          </div>
+          <div class="destination__content-cont">
+            <div class="destination__navbar">
+              <div class="destination__navbar-cont">
+                <ul class="destination__navbar-list">
+                  <li
+                    class="destination__navbar-item destination__navbar--moon active"
+                    data-content="moon"
+                  >
+                    <span class="destination__navbar-text nav-text">Moon</span>
+                  </li>
+                  <li
+                    class="destination__navbar-item destination__navbar--mars"
+                    data-content="mars"
+                  >
+                    <span class="destination__navbar-text nav-text">Mars</span>
+                  </li>
+                  <li
+                    class="destination__navbar-item destination__navbar--europa"
+                    data-content="europa"
+                  >
+                    <span class="destination__navbar-text nav-text"
+                      >Europa</span
+                    >
+                  </li>
+                  <li
+                    class="destination__navbar-item destination__navbar--titan"
+                    data-content="titan"
+                  >
+                    <span class="destination__navbar-text nav-text">Titan</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="destination__article-cont">
+              <div
+                class="destination__article__content-cont destination__article--moon"
+              >
+                <div class="destination__article__content-main">
+                  <h1 class="destination__article__content-heading heading-2">
+                    Moon
+                  </h1>
+                  <p>
+                    See our planet as you've never seen it before. A perfect
+                    relaxing trip away to help regain perspective and come back
+                    refreshed. While you're there, take in some history by
+                    visiting the Luna 2 and Apollo 11 landing sites.
+                  </p>
+                </div>
+                <div class="destination__article__content-sub">
+                  <div class="destination__article__content-sub__distance">
+                    <p
+                      class="destination__article__content-sub__heading subheading-2"
+                    >
+                      Avg. Distance
+                    </p>
+                    <p class="subheading-1">384,400 Km</p>
+                  </div>
+                  <div class="destination__article__content-sub__time">
+                    <p
+                      class="destination__article__content-sub__heading subheading-2"
+                    >
+                      Est. travel time
+                    </p>
+                    <p class="subheading-1">3 Days</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="destination__article__content-cont destination__article--mars hidden"
+              >
+                <div class="destination__article__content-main">
+                  <h1 class="destination__article__content-heading heading-2">
+                    Mars
+                  </h1>
+                  <p>
+                    Don't forget to pack your hiking boots. You'll need them to
+                    tackle Olympus Mons, the tallest planetary mountain in our
+                    solar system. It's two and a half times the size of Everest!
+                  </p>
+                </div>
+                <div class="destination__article__content-sub">
+                  <div class="destination__article__content-sub__distance">
+                    <p
+                      class="destination__article__content-sub__heading subheading-2"
+                    >
+                      Avg. Distance
+                    </p>
+                    <p class="subheading-1">225 Mil. Km</p>
+                  </div>
+                  <div class="destination__article__content-sub__time">
+                    <p
+                      class="destination__article__content-sub__heading subheading-2"
+                    >
+                      Est. travel time
+                    </p>
+                    <p class="subheading-1">9 Months</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="destination__article__content-cont destination__article--europa hidden"
+              >
+                <div class="destination__article__content-main">
+                  <h1 class="destination__article__content-heading heading-2">
+                    Europa
+                  </h1>
+                  <p>
+                    The smallest of the four Galilean moons orbiting Jupiter,
+                    Europa is a winter lover's dream. With an icy surface, it's
+                    perfect for a bit of ice skating, curling, hockey, or simple
+                    relaxation in your snug wintery cabin.
+                  </p>
+                </div>
+                <div class="destination__article__content-sub">
+                  <div class="destination__article__content-sub__distance">
+                    <p
+                      class="destination__article__content-sub__heading subheading-2"
+                    >
+                      Avg. Distance
+                    </p>
+                    <p class="subheading-1">628 Mil. Km</p>
+                  </div>
+                  <div class="destination__article__content-sub__time">
+                    <p
+                      class="destination__article__content-sub__heading subheading-2"
+                    >
+                      Est. travel time
+                    </p>
+                    <p class="subheading-1">3 Years</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="destination__article__content-cont destination__article--titan hidden"
+              >
+                <div class="destination__article__content-main">
+                  <h1 class="destination__article__content-heading heading-2">
+                    Titan
+                  </h1>
+                  <p>
+                    The only moon known to have a dense atmosphere other than
+                    Earth, Titan is a home away from home (just a few hundred
+                    degrees colder!). As a bonus, you get striking views of the
+                    Rings of Saturn.
+                  </p>
+                </div>
+                <div class="destination__article__content-sub">
+                  <div class="destination__article__content-sub__distance">
+                    <p
+                      class="destination__article__content-sub__heading subheading-2"
+                    >
+                      Avg. Distance
+                    </p>
+                    <p class="subheading-1">1.6 Bil. Km</p>
+                  </div>
+                  <div class="destination__article__content-sub__time">
+                    <p
+                      class="destination__article__content-sub__heading subheading-2"
+                    >
+                      Est. travel time
+                    </p>
+                    <p class="subheading-1">7 Years</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

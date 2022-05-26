@@ -1,0 +1,70 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+
+$home-padding-top: 4rem;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Barlow, sans-serif;
+  font-size: f.divide(100) * 10%;
+
+  //   scrollbar-color: v.$color-primary-lRed v.$color-neutral-vdBlackBlue;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.body {
+  background-color: v.$color-primary-vdBlue;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: calc(100vh - $home-padding-top);
+  min-width: 100vw;
+  padding-top: $home-padding-top;
+  position: relative;
+
+  &::after {
+    background-color: hsla(0deg, 0%, 0%, 0.6);
+    content: '';
+    display: none;
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 10;
+  }
+}
+
+.body-blur.body::after {
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.visually-hidden {
+  @supports not (clip-path: polygon(0 0, 0 0, 0 0)) {
+    clip: rect(0 0 0 0);
+  }
+
+  // position: absolute to take the content out of flow
+  // Height and width are set to 1px/.1rem so that it is accessible to screen readers
+  // using margin -1px/-.1rem and other attributes ensures content is hidden from sighted users
+  border: 0;
+  clip-path: polygon(0 0, 0 0, 0 0);
+  height: 0.1rem;
+  margin: -0.1rem;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 0.1rem;
+}

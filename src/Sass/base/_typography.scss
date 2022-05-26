@@ -1,0 +1,225 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+
+@font-face {
+  font-display: swap;
+  font-family: Bellefair;
+  src:
+    url('/src/assets/fonts/Bellefair-Regular.woff2') format('woff2'),
+    url('/src/assets/fonts/Bellefair-Regular.woff') format('woff'),
+    url('/src/assets/fonts/Bellefair-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: BarlowCondensed;
+  src:
+    url('/src/assets/fonts/BarlowCondensed-Medium.woff2') format('woff2'),
+    url('/src/assets/fonts/BarlowCondensed-Medium.woff') format('woff'),
+    url('/src/assets/fonts/BarlowCondensed-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: BarlowCondensed;
+  font-weight: 800;
+  src:
+    url('/src/assets/fonts/BarlowCondensed-Bold.woff2') format('woff2'),
+    url('/src/assets/fonts/BarlowCondensed-Bold.woff') format('woff'),
+    url('/src/assets/fonts/BarlowCondensed-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Barlow;
+  src:
+    url('/src/assets/fonts/Barlow-Regular.woff2') format('woff2'),
+    url('/src/assets/fonts/Barlow-Regular.woff') format('woff'),
+    url('/src/assets/fonts/Barlow-Regular.ttf') format('truetype');
+}
+
+p {
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 0.02rem;
+  line-height: 1.7;
+}
+
+.nav-text,
+.subheading-2,
+.heading-5 {
+  font-family: BarlowCondensed, sans-serif;
+}
+
+.nav-text {
+  font-size: 1.6rem;
+  letter-spacing: 0.27rem;
+  text-transform: uppercase;
+}
+
+.subheading-1,
+.subheading-2 {
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.subheading-2 {
+  font-size: 1.4rem;
+  letter-spacing: 0.235rem;
+}
+
+.subheading-1 {
+  font-family: Bellefair, serif;
+  font-size: 2.8rem;
+}
+
+.heading-5 {
+  font-size: 2.8rem;
+  letter-spacing: 0.475rem;
+  text-transform: uppercase;
+}
+
+.heading-1,
+.heading-2,
+.heading-3,
+.heading-4 {
+  color: v.$color-pure-white;
+  font-family: Bellefair, serif;
+  font-weight: 500;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.heading-4 {
+  font-size: 3.2rem;
+}
+
+.heading-3 {
+  font-size: 5.6rem;
+}
+
+.heading-2 {
+  font-size: 10rem;
+  line-height: 1;
+}
+
+.heading-1 {
+  font-size: 15rem;
+}
+
+.section {
+  &__heading {
+    font-family: BarlowCondensed, sans-serif;
+    font-size: 2.8rem;
+    letter-spacing: 0.472rem;
+    line-height: 1;
+    text-transform: uppercase;
+
+    &-num {
+      color: hsl(228deg, 6%, 33%);
+      font-weight: 800;
+      margin-right: 2.2rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(600) * 1em)) {
+  html {
+    font-size: f.divide(95) * 10%;
+  }
+
+  .section {
+    &__heading {
+      font-size: (2.8 - 0.5) * 1rem;
+    }
+  }
+
+  .heading-1 {
+    font-size: (15 - 2) * 1rem;
+  }
+
+  .heading-2 {
+    font-size: (10 - 2) * 1rem;
+  }
+
+  .heading-4 {
+    font-size: (3.2 - 1) * 1rem;
+  }
+
+  .heading-3 {
+    font-size: (5.6 - 1) * 1rem;
+  }
+
+  .heading-5 {
+    font-size: (2.8 - 1) * 1rem;
+  }
+}
+
+@media (max-width: (f.divide(400) * 1em)) {
+  .section {
+    &__heading {
+      font-size: (2.8 - 0.8) * 1rem;
+    }
+
+    &__heading-num {
+      margin-right: (2.2 - 1.2) * 1rem;
+    }
+  }
+
+  .heading-1 {
+    font-size: (15 - 4) * 1rem;
+  }
+
+  .heading-2 {
+    font-size: (10 - 3) * 1rem;
+  }
+
+  .heading-3 {
+    font-size: (5.6 - 2) * 1rem;
+  }
+}
+
+@media (max-width: (f.divide(350) * 1em)) {
+  .section {
+    &__heading {
+      font-size: (2.8 - 1) * 1rem;
+    }
+
+    &__heading-num {
+      margin-right: (2.2 - 2) * 1rem;
+    }
+  }
+
+  .heading-1 {
+    font-size: (15 - 5) * 1rem;
+  }
+}
+
+@media (max-width: (f.divide(300) * 1em)) {
+  .heading-1 {
+    font-size: (15 - 6) * 1rem;
+  }
+
+  .heading-2 {
+    font-size: (10 - 4) * 1rem;
+  }
+
+  .heading-5 {
+    font-size: (2.8 - 1.2) * 1rem;
+  }
+}
+
+@media (max-width: (f.divide(270) * 1em)) {
+  .heading-1 {
+    font-size: (15 - 8) * 1rem;
+  }
+
+  .heading-2 {
+    font-size: (10 - 5) * 1rem;
+  }
+
+  .heading-3 {
+    font-size: (5.6 - 2.7) * 1rem;
+  }
+}

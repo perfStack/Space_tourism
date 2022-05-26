@@ -1,0 +1,316 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use 'sass:color';
+
+$heading-margin-bottom: 6rem;
+$content-padding-top: 13.7 - $heading-margin-bottom;
+$text-cont-width: 1765; // in px
+$content-cont-width: f.pxToPercentage(925, $text-cont-width);
+
+.body--technology {
+  background-image:
+    linear-gradient(
+      to right bottom,
+      color.adjust(v.$color-bg-black, $alpha: -0.5) 60%,
+      color.adjust(v.$color-primary-vdBlue, $alpha: -0.8)
+    ),
+    url('/src/assets/img/technology/background-technology-desktop.jpg');
+  color: v.$color-primary-vlBlue;
+}
+
+.technology {
+  &__cont {
+    margin-left: f.pxToViewportUnit(166.5, 1400) * 1vw;
+    margin-top: f.pxToViewportUnit(76, 900) * 1vh;
+    max-width: 100%;
+  }
+
+  &__heading-cont {
+    margin-bottom: $heading-margin-bottom;
+  }
+
+  // Inner cont
+  &__cont__1 {
+    display: flex;
+    width: 100%;
+  }
+
+  &__cont__1__1 {
+    display: flex;
+    width: $content-cont-width;
+  }
+
+  // Nav bar
+  &__nav-cont {
+    align-self: center;
+    display: inline-block;
+    margin-right: 8rem;
+  }
+
+  &__nav-list {
+    color: v.$color-pure-white;
+  }
+
+  &__nav-item {
+    align-items: center;
+    border: 0.1rem solid color.adjust(v.$color-pure-white, $alpha: -0.75);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    height: 8rem;
+    justify-content: center;
+    width: 8rem;
+
+    &:not(:last-child) {
+      margin-bottom: 3.2rem;
+    }
+
+    > span {
+      margin-top: 0.35rem;
+    }
+
+    &.active {
+      background-color: v.$color-pure-white;
+      color: v.$color-primary-vdBlue;
+    }
+
+    &:not(.active):hover {
+      border-color: v.$color-pure-white;
+    }
+  }
+
+  // Content
+  &__content {
+    display: flex;
+  }
+
+  // Text content
+  &__content-cont {
+    margin-top: 11.1rem;
+  }
+
+  &__pre-heading {
+    margin-bottom: 1.1rem;
+  }
+
+  &__heading {
+    margin-bottom: 1.7rem;
+  }
+
+  &__text {
+    max-width: 90%;
+  }
+
+  // Img cont
+  &__img-cont {
+    display: flex;
+    justify-content: flex-end;
+    width: 100 - $content-cont-width;
+  }
+
+  &__img {
+    height: 52.7rem;
+    width: 52.7rem;
+  }
+}
+
+// media queries
+@media (max-width: (f.divide(1200) * 1em)) {
+  .technology {
+    &__cont {
+      margin-left: 8rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(1100) * 1em)) {
+  .technology {
+    &__cont {
+      margin-left: 2rem;
+    }
+
+    &__img {
+      width: 50rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(1050) * 1em)) {
+  .technology {
+    &__nav-cont {
+      margin-right: 4rem;
+    }
+
+    &__img {
+      width: 48rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(1000) * 1em)) {
+  .body--technology {
+    background-image:
+      linear-gradient(
+        to top,
+        color.adjust(v.$color-bg-black, $alpha: -0.5) 60%,
+        color.adjust(v.$color-primary-vdBlue, $alpha: -0.8)
+      ),
+      url('/src/assets/img/technology/background-technology-tablet.jpg');
+  }
+
+  .technology {
+    &__cont {
+      margin-left: 0;
+    }
+
+    &__heading-cont {
+      margin-left: v.$mq-heading-margin-left;
+    }
+
+    &__cont__1 {
+      align-items: center;
+      flex-direction: column-reverse;
+    }
+
+    &__cont__1__1 {
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 5rem;
+      margin-top: 5.6rem;
+      width: 100%;
+    }
+
+    &__img-cont {
+      width: 100%;
+    }
+
+    &__img {
+      height: 42rem;
+      width: 100%;
+    }
+
+    &__nav-cont {
+      margin-right: 0;
+    }
+
+    &__nav-list {
+      display: flex;
+    }
+
+    &__nav-item {
+      &:not(:last-child) {
+        margin-bottom: 0;
+        margin-right: 3.2rem;
+      }
+    }
+
+    &__content-cont {
+      margin-top: 4.4rem;
+      min-height: 27rem;
+      text-align: center;
+      width: 60%;
+    }
+
+    &__text {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (max-width: (f.divide(900) * 1em)) {
+  .technology {
+    &__content-cont {
+      width: 70%;
+    }
+  }
+}
+
+@media (max-width: (f.divide(800) * 1em)) {
+  .technology {
+    &__content-cont {
+      width: 75%;
+    }
+  }
+}
+
+@media (max-width: (f.divide(700) * 1em)) {
+  .body--technology {
+    background-image:
+      linear-gradient(
+        to top,
+        color.adjust(v.$color-bg-black, $alpha: -0.5) 60%,
+        color.adjust(v.$color-primary-vdBlue, $alpha: -0.8)
+      ),
+      url('/src/assets/img/technology/background-technology-desktop.jpg');
+  }
+
+  .technology {
+    &__content-cont {
+      width: 80%;
+    }
+
+    &__img {
+      height: 32rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(750) * 1em)) {
+  .technology {
+    &__content-cont {
+      width: 85%;
+    }
+  }
+}
+
+@media (max-width: (f.divide(650) * 1em)) {
+  .technology {
+    &__content-cont {
+      min-height: 33.2rem;
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: (f.divide(500) * 1em)) {
+  .technology {
+    &__img {
+      height: 26rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(300) * 1em)) {
+  .technology {
+    &__nav-item {
+      height: 6rem;
+      width: 6rem;
+    }
+
+    &__heading-cont {
+      margin-left: 1rem;
+    }
+
+    &__img {
+      height: 20rem;
+    }
+
+    &__content-cont {
+      min-height: 40rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(250) * 1em)) {
+  .technology {
+    &__nav-item {
+      height: 4rem;
+      width: 4rem;
+    }
+
+    &__content-cont {
+      min-height: 50rem;
+    }
+  }
+}

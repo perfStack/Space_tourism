@@ -1,0 +1,19 @@
+<title>Space tourism</title>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="<%= require('/src/assets/img/favicon-32x32.png') %>"
+/>
+
+<!-- prettier-ignore -->
+<% const fileNameIndentifier = 'main';
+for (const cssFilePath of htmlWebpackPlugin.files.css) { 
+  if (cssFilePath.includes(fileNameIndentifier)) { _%>
+<link href="<%= cssFilePath %>" rel="stylesheet">
+<% }} _%>
+<!-- prettier-ignore -->
+<% for (const jsFilePath of htmlWebpackPlugin.files.js) { 
+if (jsFilePath.includes(fileNameIndentifier)) { _%>
+<script defer src="<%= jsFilePath %>"></script>
+<% }} _%>

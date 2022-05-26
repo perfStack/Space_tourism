@@ -1,0 +1,315 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use 'sass:color';
+
+$heading-margin-bottom: 2.7rem;
+$cont-x-axis-start: f.pxToViewportUnit(166.5, 1400) * 1vw;
+$cont-max-width: 1145.5; // in px
+$img-cont-width: f.pxToPercentage(615.57, $cont-max-width);
+$nav-item-margin-right: 2.4rem;
+
+.body--crew {
+  background-image:
+    linear-gradient(
+      to right,
+      color.adjust(v.$color-bg-black, $alpha: -0.4) 50%,
+      color.adjust(v.$color-primary-vdBlue, $alpha: -0.8)
+    ),
+    url('/src/assets/img/crew/background-crew-desktop.jpg');
+  color: v.$color-primary-vlBlue;
+}
+
+.crew {
+  &__cont {
+    margin-left: $cont-x-axis-start;
+    margin-top: f.pxToViewportUnit(76, 900) * 1vh;
+    max-width: f.pxToViewportUnit($cont-max-width, 1400) * 1vw;
+  }
+
+  &__main-cont {
+    display: flex;
+    min-height: 65rem;
+  }
+
+  // Content
+  &__content-cont {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 15.4rem;
+    width: 100% - $img-cont-width;
+  }
+
+  &__pre-heading {
+    color: hsl(230deg, 3%, 58%);
+    margin-bottom: 1.5rem;
+  }
+
+  &__heading {
+    color: v.$color-pure-white;
+    margin-bottom: $heading-margin-bottom;
+  }
+
+  &__text {
+    max-width: 75%;
+  }
+
+  // Img
+  &__img-cont {
+    display: flex;
+    height: 65rem;
+    justify-content: center;
+  }
+
+  &__picture {
+    align-items: flex-end;
+    display: flex;
+    height: inherit;
+    max-width: 100%;
+  }
+
+  &__img {
+    border-bottom:
+      0.01rem solid
+      color.adjust(v.$color-pure-white, $alpha: -0.87);
+    display: inherit;
+    height: inherit;
+    margin-bottom: -1.5rem;
+    max-width: inherit;
+  }
+
+  // Navigation
+  &__nav {
+    margin-bottom: 9.4rem;
+
+    &-list {
+      display: flex;
+    }
+
+    &-item {
+      background-color: color.adjust(v.$color-pure-white, $alpha: -0.87);
+      border-radius: 50%;
+      height: 1.5rem;
+      position: relative;
+      width: 1.5rem;
+
+      &::after {
+        @include m.absolute-center;
+
+        content: '';
+        cursor: pointer;
+        height: inherit;
+        padding: f.divide($nav-item-margin-right, 2);
+        width: inherit;
+        z-index: 2;
+      }
+
+      &:not(:last-child) {
+        margin-right: $nav-item-margin-right;
+      }
+
+      &.active {
+        background-color: v.$color-pure-white;
+      }
+
+      &:not(.active):hover {
+        background-color: color.adjust(v.$color-pure-white, $alpha: -0.5);
+      }
+    }
+  }
+}
+
+// Media Queries
+@media (max-width: (f.divide(1300) * 1em)) {
+  .crew {
+    &__nav {
+      margin-bottom: 9rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(1200) * 1em)) {
+  .crew {
+    &__nav {
+      margin-bottom: 4rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(1100) * 1em)) {
+  .crew {
+    &__cont {
+      margin-left: 6rem;
+      max-width: 95%;
+    }
+
+    &__nav {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(1000) * 1em)) {
+  .body--crew {
+    background-image:
+      linear-gradient(
+        to bottom,
+        color.adjust(v.$color-bg-black, $alpha: -0.4) 50%,
+        color.adjust(v.$color-primary-vdBlue, $alpha: -0.8)
+      ),
+      url('/src/assets/img/crew/background-crew-tablet.jpg');
+  }
+
+  .crew {
+    &__cont {
+      margin-left: 0;
+      max-width: 100%;
+    }
+
+    &__heading-cont {
+      margin-left: v.$mq-heading-margin-left;
+    }
+
+    &__main-cont {
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &__content-cont {
+      flex-direction: column;
+      text-align: center;
+      width: 80%;
+    }
+
+    &__content {
+      min-height: 25.5rem;
+    }
+
+    &__text {
+      max-width: 80%;
+    }
+
+    &__person {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    &__img-cont {
+      margin-top: 6rem;
+    }
+
+    &__img {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: (f.divide(800) * 1em)) {
+  .crew {
+    &__content-cont {
+      width: 90%;
+    }
+  }
+}
+
+@media (max-width: (f.divide(700) * 1em)) {
+  .crew {
+    &__content {
+      min-height: 28rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(600) * 1em)) {
+  .body--crew {
+    background-image:
+      linear-gradient(
+        to top,
+        color.adjust(v.$color-bg-black, $alpha: -0.4) 50%,
+        color.adjust(v.$color-primary-vdBlue, $alpha: -0.8)
+      ),
+      url('/src/assets/img/crew/background-crew-mobile.jpg');
+  }
+
+  .crew {
+    &__main-cont {
+      flex-direction: column-reverse;
+    }
+
+    &__content-cont {
+      flex-direction: column-reverse;
+      margin-bottom: 3.2rem;
+      margin-top: 3.2rem;
+    }
+
+    &__nav {
+      margin-bottom: 3.2rem;
+      margin-top: 0;
+    }
+
+    &__content {
+      min-height: 31rem;
+    }
+
+    &__img-cont {
+      height: 42.3rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(500) * 1em)) {
+  .crew {
+    &__content {
+      min-height: 36rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(420) * 1em)) {
+  .crew {
+    &__content {
+      min-height: 38rem;
+    }
+
+    &__img-cont {
+      height: 32.3rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(300) * 1em)) {
+  .crew {
+    &__content {
+      min-height: 42rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(200) * 1em)) {
+  .crew {
+    &__content {
+      min-height: 55rem;
+    }
+  }
+}
+
+@media (max-width: (f.divide(250) * 1em)) {
+  .crew {
+    &__content {
+      min-height: 55rem;
+    }
+
+    &__heading-cont {
+      margin-left: 1rem;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+@use '../abstracts/functions' as f;
+
+//  ######################## Colors ########################
+
+// Primary
+$color-pure-white: hsl(0deg, 0%, 100%);
+
+// primary colors
+$color-primary-vlBlue: hsl(231deg, 77%, 90%);
+$color-primary-vdBlue: hsl(230deg, 35%, 7%);
+$color-bg-black: hsl(0deg, 0%, 0%);
+
+// ######################## Shadows ########################
+$shadow-vlGray: hsla(0deg, 0%, 54%, 0.2);
+$shadow-vlBlack: hsla(0deg, 0%, 0%, 0.1);
+
+//  ######################## Fonts ########################
+$font-xxxl: 6.734rem;
+$font-xxl: 5.025rem;
+$font-xl: 3.79rem;
+$font-l: 2.843rem;
+$font-m: 2.133rem;
+$font-s: 1.6rem;
+$font-xs: 1.2rem;
+$font-xxs: 0.9rem;
+$font-xxxs: 0.676rem;
+
+//  ######################## Spacing ########################
+$space-xxxxl: 12.8rem;
+$space-xxxl: 9.6rem;
+$space-xxl: 8rem;
+$space-xl: 6.4rem;
+$space-l: 4.8rem;
+$space-m: 3.2rem;
+$space-s: 2.4rem;
+$space-xs: 1.6rem;
+$space-xxs: 1.2rem;
+$space-xxxs: 0.8rem;
+$space-xxxxs: 0.4rem;
+$space-xxxxxs: 0.2rem;
+
+// ######################## Others ########################
+$mq-heading-margin-left: 3.8rem;

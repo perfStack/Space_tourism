@@ -1,0 +1,9 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+
+a {
+  color: inherit;
+  display: inline-block;
+  text-decoration: none;
+}

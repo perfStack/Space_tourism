@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- partials/starterHead.html -->
+    <%- include ./partials/starterHead.ejs %>
+    <!--  -->
+
+    <!-- prettier-ignore -->
+    <% const fileNameIndentifier = 'pageCrew';
+    for (const cssFilePath of htmlWebpackPlugin.files.css) { 
+     if (cssFilePath.includes(fileNameIndentifier)) { _%>
+    <link href="<%= cssFilePath %>" rel="stylesheet" />
+    <% }} _%>
+    <!-- prettier-ignore -->
+    <% for (const jsFilePath of htmlWebpackPlugin.files.js) { 
+    if (jsFilePath.includes(fileNameIndentifier)) { _%>
+    <script defer src="<%= jsFilePath %>"></script>
+    <% }} _%>
+  </head>
+
+  <body class="body body--crew">
+    <!-- partials/headerStart.html -->
+    <%- include ./partials/headerStart.ejs %>
+    <li class="header__nav-list__item nav-text">
+      <a href="../../index.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">00</span
+          ><span class="header__nav-list__content">home</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text">
+      <a href="destination.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">01</span
+          ><span class="header__nav-list__content">destination</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text active">
+      <a href="crew.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">02</span
+          ><span class="header__nav-list__content">crew</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text">
+      <a href="technology.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">03</span
+          ><span class="header__nav-list__content">technology</span>
+        </div>
+      </a>
+    </li>
+    <!-- partials/headerEnd.html -->
+    <%- include ./partials/headerEnd.ejs %>
+
+    <main class="main crew">
+      <div class="main-cont crew__cont">
+        <div class="crew__heading-cont">
+          <p class="section__heading">
+            <span class="section__heading-num">02</span>
+            Meet your crew
+          </p>
+        </div>
+
+        <div class="crew__main-cont">
+          <div class="crew__content-cont">
+            <div class="crew__content">
+              <div class="crew__person crew__person--1">
+                <p class="crew__pre-heading heading-4">Commander</p>
+                <h1 class="crew__heading heading-3">Doughlas hurley</h1>
+                <p class="crew__text">
+                  Douglas Gerald Hurley is an American engineer, former Marine
+                  Corps pilot and former NASA astronaut. He launched into space
+                  for the third time as commander of Crew Dragon Demo-2.
+                </p>
+              </div>
+              <div class="crew__person crew__person--2 hidden">
+                <p class="crew__pre-heading heading-4">Mission Specialist</p>
+                <h1 class="crew__heading heading-3">MARK SHUTTLEWORTH</h1>
+                <p class="crew__text">
+                  Mark Richard Shuttleworth is the founder and CEO of Canonical,
+                  the company behind the Linux-based Ubuntu operating system.
+                  Shuttleworth became the first South African to travel to space
+                  as a space tourist.
+                </p>
+              </div>
+              <div class="crew__person crew__person--3 hidden">
+                <p class="crew__pre-heading heading-4">PILOT</p>
+                <h1 class="crew__heading heading-3">Victor Glover</h1>
+                <p class="crew__text">
+                  Pilot on the first operational flight of the SpaceX Crew
+                  Dragon to the International Space Station. Glover is a
+                  commander in the U.S. Navy where he pilots an F/A-18.He was a
+                  crew member of Expedition 64, and served as a station systems
+                  flight engineer.
+                </p>
+              </div>
+              <div class="crew__person crew__person--4 hidden">
+                <p class="crew__pre-heading heading-4">Flight Engineer</p>
+                <h1 class="crew__heading heading-3">Anousheh Ansari</h1>
+                <p class="crew__text">
+                  Anousheh Ansari is an Iranian American engineer and co-founder
+                  of Prodea Systems. Ansari was the fourth self-funded space
+                  tourist, the first self-funded woman to fly to the ISS, and
+                  the first Iranian in space.
+                </p>
+              </div>
+            </div>
+            <div class="crew__nav">
+              <div class="crew__nav-cont">
+                <ul class="crew__nav-list">
+                  <li
+                    class="crew__nav-item crew__nav-item--1 active"
+                    data-content="1"
+                  >
+                    &nbsp;
+                  </li>
+                  <li class="crew__nav-item crew__nav-item--2" data-content="2">
+                    &nbsp;
+                  </li>
+                  <li class="crew__nav-item crew__nav-item--3" data-content="3">
+                    &nbsp;
+                  </li>
+                  <li class="crew__nav-item crew__nav-item--4" data-content="4">
+                    &nbsp;
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="crew__img-cont">
+            <picture class="crew__picture crew__picture--1">
+              <source
+                srcset="<%= require('/src/assets/img/crew/image-douglas-hurley.webp') %>"
+                type="image/webp"
+              />
+              <img
+                class="crew__img"
+                src="<%= require('/src/assets/img/crew/image-douglas-hurley.png') %>"
+                alt="photo of douglas hurley"
+              />
+            </picture>
+            <picture class="crew__picture crew__picture--2 hidden">
+              <source
+                srcset="<%= require('/src/assets/img/crew/image-mark-shuttleworth.webp') %>"
+                type="image/webp"
+              />
+              <img
+                class="crew__img"
+                src="<%= require('/src/assets/img/crew/image-mark-shuttleworth.png') %>"
+                alt="photo of mark shuttleworth"
+              />
+            </picture>
+            <picture class="crew__picture crew__picture--3 hidden">
+              <source
+                srcset="<%= require('/src/assets/img/crew/image-victor-glover.webp') %>"
+                type="image/webp"
+              />
+              <img
+                class="crew__img"
+                src="<%= require('/src/assets/img/crew/image-victor-glover.png') %>"
+                alt="photo of victor glover"
+              />
+            </picture>
+            <picture class="crew__picture crew__picture--4 hidden">
+              <source
+                srcset="<%= require('/src/assets/img/crew/image-anousheh-ansari.webp') %>"
+                type="image/webp"
+              />
+              <img
+                class="crew__img"
+                src="<%= require('/src/assets/img/crew/image-anousheh-ansari.webp') %>"
+                alt="photo of anousheh ansari"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

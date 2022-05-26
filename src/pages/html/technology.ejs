@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- partials/starterHead.html -->
+    <%- include ./partials/starterHead.ejs %>
+    <!--  -->
+
+    <!-- prettier-ignore -->
+    <% const fileNameIndentifier = 'pageTechnology';
+    for (const cssFilePath of htmlWebpackPlugin.files.css) { 
+    if (cssFilePath.includes(fileNameIndentifier)) { _%>
+    <link href="<%= cssFilePath %>" rel="stylesheet" />
+    <% }} _%>
+    <!-- prettier-ignore -->
+    <% for (const jsFilePath of htmlWebpackPlugin.files.js) { 
+    if (jsFilePath.includes(fileNameIndentifier)) { _%>
+    <script defer src="<%= jsFilePath %>"></script>
+    <% }} _%>
+  </head>
+
+  <body class="body body--technology">
+    <!-- partials/headerStart.html -->
+    <%- include ./partials/headerStart.ejs %>
+    <li class="header__nav-list__item nav-text">
+      <a href="../../index.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">00</span
+          ><span class="header__nav-list__content">home</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text">
+      <a href="destination.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">01</span
+          ><span class="header__nav-list__content">destination</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text">
+      <a href="crew.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">02</span
+          ><span class="header__nav-list__content">crew</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text active">
+      <a href="technology.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">03</span
+          ><span class="header__nav-list__content">technology</span>
+        </div>
+      </a>
+    </li>
+    <!-- partials/headerEnd.html -->
+    <%- include ./partials/headerEnd.ejs %>
+
+    <main class="main technology">
+      <div class="main-cont technology__cont">
+        <div class="technology__heading-cont">
+          <p class="technology__heading section__heading">
+            <span class="technology__heading-num section__heading-num">03</span>
+            Space launch 101
+          </p>
+        </div>
+
+        <div class="technology__cont__1">
+          <div class="technology__cont__1__1">
+            <div class="technology__nav-cont">
+              <ol class="technology__nav-list">
+                <li
+                  class="technology__nav-item technology__nav-item--1 heading-4 active"
+                  data-content="1"
+                >
+                  <span>1</span>
+                </li>
+                <li
+                  class="technology__nav-item technology__nav-item--2 heading-4"
+                  data-content="2"
+                >
+                  <span>2</span>
+                </li>
+                <li
+                  class="technology__nav-item technology__nav-item--3 heading-4"
+                  data-content="3"
+                >
+                  <span>3</span>
+                </li>
+              </ol>
+            </div>
+            <div class="technology__content-cont">
+              <div class="technology__content technology__content--1">
+                <div class="technology__text-cont">
+                  <p class="technology__pre-heading nav-text">
+                    The Terminology…
+                  </p>
+                  <h1 class="technology__heading heading-3">Launch Vehicle</h1>
+                  <p class="technology__text">
+                    A launch vehicle or carrier rocket is a rocket-propelled
+                    vehicle used to carry a payload from Earth's surface to
+                    space, usually to Earth orbit or beyond. Our WEB-X carrier
+                    rocket is the most powerful in operation. Standing 150
+                    metres tall, it's quite an awe-inspiring sight on the launch
+                    pad!
+                  </p>
+                </div>
+              </div>
+              <div class="technology__content technology__content--2 hidden">
+                <div class="technology__text-cont">
+                  <p class="technology__pre-heading nav-text">
+                    The Terminology…
+                  </p>
+                  <h1 class="technology__heading heading-3">SPACEPORt</h1>
+                  <p class="technology__text">
+                    A spaceport or cosmodrome is a site for launching (or
+                    receiving) spacecraft, by analogy to the seaport for ships
+                    or airport for aircraft. Based in the famous Cape Canaveral,
+                    our spaceport is ideally situated to take advantage of the
+                    Earth's rotation for launch.
+                  </p>
+                </div>
+              </div>
+              <div class="technology__content technology__content--3 hidden">
+                <div class="technology__text-cont">
+                  <p class="technology__pre-heading nav-text">
+                    The Terminology…
+                  </p>
+                  <h1 class="technology__heading heading-3">SPACE CAPSULe</h1>
+                  <p class="technology__text">
+                    A space capsule is an often-crewed spacecraft that uses a
+                    blunt-body reentry capsule to reenter the Earth's atmosphere
+                    without wings. Our capsule is where you'll spend your time
+                    during the flight. It includes a space gym, cinema, and
+                    plenty of other activities to keep you entertained.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="technology__img-cont">
+            <picture>
+              <source
+                srcset="<%= require('/src/assets/img/technology/image-launch-vehicle-landscape.jpg') %>"
+                media="(max-width: 1001px)"
+              />
+              <source
+                srcset="<%= require('/src/assets/img/technology/image-launch-vehicle-portrait.jpg') %>"
+                media="(max-width: 1000px)"
+              />
+              <img
+                class="technology__img technology__img--1"
+                src="<%= require('/src/assets/img/technology/image-launch-vehicle-portrait.jpg') %>"
+                alt="photo of launch vehicle"
+              />
+            </picture>
+            <picture>
+              <source
+                srcset="<%= require('/src/assets/img/technology/image-spaceport-landscape.jpg') %>"
+                media="(max-width: 1001px)"
+              />
+              <source
+                srcset="<%= require('/src/assets/img/technology/image-spaceport-portrait.jpg') %>"
+                media="(max-width: 1000px)"
+              />
+              <img
+                class="technology__img technology__img--2 hidden"
+                src="<%= require('/src/assets/img/technology/image-spaceport-portrait.jpg') %>"
+                alt="photo of spaceport"
+              />
+            </picture>
+            <picture>
+              <source
+                srcset="<%= require('/src/assets/img/technology/image-space-capsule-landscape.jpg') %>"
+                media="(max-width: 1001px)"
+              />
+              <source
+                srcset="<%= require('/src/assets/img/technology/image-space-capsule-portrait.jpg') %>"
+                media="(max-width: 1000px)"
+              />
+              <img
+                class="technology__img technology__img--3 hidden"
+                src="<%= require('/src/assets/img/technology/image-space-capsule-portrait.jpg') %>"
+                alt="photo of space capsule"
+              />
+            </picture>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

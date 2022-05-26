@@ -1,0 +1,14 @@
+    <!-- html files -->
+    <link rel="prefetch" href="./pages/html/destination.html">
+    <link rel="prefetch" href="./pages/html/crew.html">
+    <link rel="prefetch" href="./pages/html/technology.html">
+    
+    <!-- Css files except main -->
+    <!-- prettier-ignore -->
+    <% const fileNameIndentifier = 'main';
+for (const cssFilePath of htmlWebpackPlugin.files.css) { 
+  if (!cssFilePath.includes(fileNameIndentifier)) { _%>
+    <link rel="prefetch" href="<%= cssFilePath %>" as="style" type="text/css" crossorigin>
+    <% }} _%>
+
+    

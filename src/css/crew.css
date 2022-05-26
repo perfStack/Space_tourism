@@ -1,0 +1,216 @@
+.body--crew {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6) 50%, rgba(12, 14, 24, 0.2)), url("/src/assets/img/crew/background-crew-desktop.jpg");
+  color: hsl(231deg, 77%, 90%);
+}
+
+.crew__cont {
+  margin-left: 11.8928571429vw;
+  margin-top: 8.4444444444vh;
+  max-width: 81.8214285714vw;
+}
+.crew__main-cont {
+  display: flex;
+  min-height: 65rem;
+}
+.crew__content-cont {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 15.4rem;
+  width: 46.2618943693%;
+}
+.crew__pre-heading {
+  color: hsl(230deg, 3%, 58%);
+  margin-bottom: 1.5rem;
+}
+.crew__heading {
+  color: hsl(0deg, 0%, 100%);
+  margin-bottom: 2.7rem;
+}
+.crew__text {
+  max-width: 75%;
+}
+.crew__img-cont {
+  display: flex;
+  height: 65rem;
+  justify-content: center;
+}
+.crew__picture {
+  align-items: flex-end;
+  display: flex;
+  height: inherit;
+  max-width: 100%;
+}
+.crew__img {
+  border-bottom: 0.01rem solid rgba(255, 255, 255, 0.13);
+  display: inherit;
+  height: inherit;
+  margin-bottom: -1.5rem;
+  max-width: inherit;
+}
+.crew__nav {
+  margin-bottom: 9.4rem;
+}
+.crew__nav-list {
+  display: flex;
+}
+.crew__nav-item {
+  background-color: rgba(255, 255, 255, 0.13);
+  border-radius: 50%;
+  height: 1.5rem;
+  position: relative;
+  width: 1.5rem;
+}
+.crew__nav-item::after {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  content: "";
+  cursor: pointer;
+  height: inherit;
+  padding: 1.2rem;
+  width: inherit;
+  z-index: 2;
+}
+.crew__nav-item:not(:last-child) {
+  margin-right: 2.4rem;
+}
+.crew__nav-item.active {
+  background-color: hsl(0deg, 0%, 100%);
+}
+.crew__nav-item:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 81.25em) {
+  .crew__nav {
+    margin-bottom: 9rem;
+  }
+}
+@media (max-width: 75em) {
+  .crew__nav {
+    margin-bottom: 4rem;
+  }
+}
+@media (max-width: 68.75em) {
+  .crew__cont {
+    margin-left: 6rem;
+    max-width: 95%;
+  }
+  .crew__nav {
+    margin-bottom: 2rem;
+  }
+}
+@media (max-width: 62.5em) {
+  .body--crew {
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 50%, rgba(12, 14, 24, 0.2)), url("/src/assets/img/crew/background-crew-tablet.jpg");
+  }
+
+  .crew__cont {
+    margin-left: 0;
+    max-width: 100%;
+  }
+  .crew__heading-cont {
+    margin-left: 3.8rem;
+  }
+  .crew__main-cont {
+    align-items: center;
+    flex-direction: column;
+  }
+  .crew__content-cont {
+    flex-direction: column;
+    text-align: center;
+    width: 80%;
+  }
+  .crew__content {
+    min-height: 25.5rem;
+  }
+  .crew__text {
+    max-width: 80%;
+  }
+  .crew__person {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .crew__nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  .crew__img-cont {
+    margin-top: 6rem;
+  }
+  .crew__img {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 50em) {
+  .crew__content-cont {
+    width: 90%;
+  }
+}
+@media (max-width: 43.75em) {
+  .crew__content {
+    min-height: 28rem;
+  }
+}
+@media (max-width: 37.5em) {
+  .body--crew {
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6) 50%, rgba(12, 14, 24, 0.2)), url("/src/assets/img/crew/background-crew-mobile.jpg");
+  }
+
+  .crew__main-cont {
+    flex-direction: column-reverse;
+  }
+  .crew__content-cont {
+    flex-direction: column-reverse;
+    margin-bottom: 3.2rem;
+    margin-top: 3.2rem;
+  }
+  .crew__nav {
+    margin-bottom: 3.2rem;
+    margin-top: 0;
+  }
+  .crew__content {
+    min-height: 31rem;
+  }
+  .crew__img-cont {
+    height: 42.3rem;
+  }
+}
+@media (max-width: 31.25em) {
+  .crew__content {
+    min-height: 36rem;
+  }
+}
+@media (max-width: 26.25em) {
+  .crew__content {
+    min-height: 38rem;
+  }
+  .crew__img-cont {
+    height: 32.3rem;
+  }
+}
+@media (max-width: 18.75em) {
+  .crew__content {
+    min-height: 42rem;
+  }
+}
+@media (max-width: 12.5em) {
+  .crew__content {
+    min-height: 55rem;
+  }
+}
+@media (max-width: 15.625em) {
+  .crew__content {
+    min-height: 55rem;
+  }
+  .crew__heading-cont {
+    margin-left: 1rem;
+  }
+}
+
+/*# sourceMappingURL=crew.css.map */

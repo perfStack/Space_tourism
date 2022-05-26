@@ -1,0 +1,235 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use 'sass:color';
+
+$list-item__border: 0.5rem;
+$list-item__padding: 2.4rem;
+
+.header {
+  &__cont {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5.5rem;
+  }
+
+  &__nav {
+    min-width: 59.9278%;
+    position: relative;
+
+    &::before {
+      border-bottom: solid 0.1rem;
+      color: color.adjust(v.$color-primary-vlBlue, $alpha: -0.5);
+      content: '';
+      left: -52%;
+      position: absolute;
+      top: 48%;
+      width: 45rem;
+      z-index: 100;
+    }
+
+    &-cont {
+      background-color: #06070d;
+      position: relative;
+    }
+
+    &-list {
+      color: v.$color-pure-white;
+      display: flex;
+      padding: 0 0 0 (12.3rem - $list-item__padding);
+
+      &__item-link {
+        padding: 0 $list-item__padding;
+      }
+
+      &__link-cont {
+        border-bottom: solid $list-item__border;
+        border-color: transparent;
+        padding: (3.85rem - $list-item__border) 0;
+        text-transform: uppercase;
+      }
+
+      // show border-bottom when hovered over parent but display border only for children
+      .active &__link-cont {
+        border-color: v.$color-pure-white;
+      }
+
+      &__item-link:not(.active):hover &__link-cont {
+        border-color: color.adjust(v.$color-pure-white, $alpha: -0.5);
+      }
+
+      &__num {
+        font-weight: 700;
+        letter-spacing: 0.27rem;
+        padding-right: 1.1rem;
+      }
+    }
+  }
+
+  @supports (backdrop-filter: blur(1rem)) {
+    &__nav {
+      &-cont {
+        backdrop-filter: blur(2rem);
+        background-color: color.adjust(v.$color-pure-white, $alpha: -0.9);
+      }
+
+      &-list {
+        color: v.$color-pure-white;
+
+        // show border-bottom when hovered over parent but display border only for children
+        .active &__link-cont {
+          border-color: v.$color-pure-white;
+        }
+
+        &__item-link:not(.active):hover &__link-cont {
+          border-color: color.adjust(v.$color-pure-white, $alpha: -0.5);
+        }
+      }
+    }
+  }
+}
+
+// Mobile nav btn
+.nav-mobile {
+  &__btn-cont {
+    cursor: pointer;
+    display: none;
+    height: 2.4rem;
+    padding: 1.5rem;
+    position: absolute;
+    right: 2rem;
+    top: 3.3rem;
+    width: 2.4rem;
+    z-index: 1001;
+  }
+
+  &__btn {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: inherit;
+    width: inherit;
+  }
+
+  &__btn[aria-expanded='false'] {
+    background-image: url('/src/assets/img/shared/icon-hamburger.svg');
+  }
+
+  &__btn[aria-expanded='true'] {
+    background-image: url('/src/assets/img/shared/icon-close.svg');
+
+    @supports (backdrop-filter: blur(1rem)) {
+      // filter: brightness(0);
+    }
+  }
+}
+
+@media (max-width: (f.divide(1200) * 1em)) {
+  .header {
+    &__nav {
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: (f.divide(1000) * 1em)) {
+  .header {
+    &__nav {
+      &-list {
+        padding: 0 0 0 4.4rem;
+      }
+
+      &-list__num {
+        display: none;
+      }
+    }
+  }
+}
+
+// Media queries
+@media (max-width: (f.divide(700) * 1em)) {
+  .header {
+    &__nav {
+      left: 55vw;
+      position: fixed;
+      top: 0;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      visibility: hidden; // to prevent tab navigation
+      width: 45vw;
+      z-index: 1000;
+
+      &::before {
+        display: none;
+      }
+
+      &-cont {
+        box-sizing: inherit;
+        height: 100vh;
+        padding-left: 0;
+        padding-top: 11.8rem;
+      }
+
+      &-list {
+        box-sizing: inherit;
+        flex-direction: column;
+        padding: 0;
+
+        &__num {
+          display: inline-block;
+        }
+
+        &__item-link {
+          display: block;
+          padding: 1.6rem 0;
+        }
+
+        &__link-cont {
+          border-bottom: none;
+          border-left: solid transparent $list-item__border;
+          padding: 1rem 0 1rem 2.4rem;
+        }
+      }
+    }
+
+    &__nav[data-visible='true'] {
+      transform: translateX(0);
+      visibility: visible;
+    }
+
+    .nav-mobile {
+      &__btn-cont {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: (f.divide(600) * 1em)) {
+  .header {
+    &__nav {
+      left: 45vw;
+      width: 55vw;
+    }
+  }
+}
+
+@media (max-width: (f.divide(400) * 1em)) {
+  .header {
+    &__nav {
+      left: 25vw;
+      width: 75vw;
+    }
+  }
+}
+
+@media (max-width: (f.divide(300) * 1em)) {
+  .header {
+    &__nav {
+      left: 0;
+      width: 100vw;
+    }
+  }
+}

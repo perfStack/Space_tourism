@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- html/partials/starterHead.html -->
+    <%- include pages/html/partials/starterHead.ejs %>
+
+    <!-- prefetch -->
+    <%- include pages/html/partials/preload.ejs %>
+    <!-- prefetch -->
+    <%- include pages/html/partials/prefetch.ejs %>
+
+  </head>
+  <body class="body body--home">
+    <!-- partials/headerStart.html -->
+    <%- include pages/html/partials/headerStart.ejs %>
+    <li class="header__nav-list__item nav-text active">
+      <a href="./index.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">00</span
+          ><span class="header__nav-list__content">home</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text">
+      <a
+        href="./pages/html/destination.html"
+        class="header__nav-list__item-link"
+      >
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">01</span
+          ><span class="header__nav-list__content">destination</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text">
+      <a href="./pages/html/crew.html" class="header__nav-list__item-link">
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">02</span
+          ><span class="header__nav-list__content">crew</span>
+        </div>
+      </a>
+    </li>
+    <li class="header__nav-list__item nav-text">
+      <a
+        href="./pages/html/technology.html"
+        class="header__nav-list__item-link"
+      >
+        <div class="header__nav-list__link-cont">
+          <span class="header__nav-list__num" aria-hidden="true">03</span
+          ><span class="header__nav-list__content">technology</span>
+        </div>
+      </a>
+    </li>
+    <!-- partials/headerEnd.html -->
+    <%- include pages/html/partials/headerEnd.ejs %>
+
+    <main class="main main--home">
+      <div class="main--home__cont">
+        <div class="main--home__content-cont">
+          <p class="main--home__pre-heading heading-5">
+            So, you want to travel to
+          </p>
+          <h1 class="main--home__heading heading-1">Space</h1>
+          <div class="main--home__text-cont">
+            <p class="main--home__text">
+              Let's face it; if you want to go to space, you might as well
+              genuinely go to outer space and not hover kind of on the edge of
+              it. Well sit back, and relax because we'll give you a truly out of
+              this world experience!
+            </p>
+          </div>
+        </div>
+        <div class="main--home__btn-cont">
+          <div class="explore">
+            <div class="explore__cont">
+              <a class="explore__btn heading-4" href="#">Explore</a>
+              <div class="explore__btn-decoration" aria-hidden="true">
+                &nbsp;
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

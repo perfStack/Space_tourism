@@ -1,0 +1,28 @@
+@use 'sass:math';
+@use 'sass:color';
+
+@function divide($dividend, $divisor: 16) {
+  @return math.div($dividend, $divisor);
+}
+
+@function addTransparency($color, $transparency) {
+  @return color.adjust($color, $alpha: $transparency);
+}
+
+@function pxToViewportUnit($pxToConvert, $vh) {
+  $result: 100 * math.div($pxToConvert, $vh);
+
+  @return $result;
+}
+
+@function remToViewportUnit($remToConvert, $vh) {
+  $result: 100 * math.div(($remToConvert * 10), $vh);
+
+  @return $result;
+}
+
+@function pxToPercentage($childWidth, $parentWidth) {
+  $result: 100 * math.div($childWidth, $parentWidth);
+
+  @return $result * 1%;
+}

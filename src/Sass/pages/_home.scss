@@ -1,0 +1,183 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/functions' as f;
+@use 'sass:color';
+
+$explore-btn-height: 27.4rem;
+$explore-btn-width: 27.4rem;
+$explore-btn-halo: 8.8rem;
+
+.body--home {
+  background-color: v.$color-primary-vdBlue;
+  background-image:
+    linear-gradient(
+      to right,
+      color.adjust(v.$color-bg-black, $alpha: -0.5) 60%,
+      color.adjust(v.$color-primary-vdBlue, $alpha: -0.7)
+    ),
+    url('/src/assets/img/home/background-home-desktop.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: v.$color-primary-vlBlue;
+  position: relative;
+}
+
+.main--home {
+  padding-left: 16.5rem;
+
+  &__cont {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25.1rem;
+    min-width: 100%;
+  }
+
+  &__content-cont {
+    max-width: 44.5rem;
+  }
+
+  &__btn-cont {
+    align-self: flex-end;
+  }
+
+  &__pre-heading {
+    margin-bottom: 2.4rem;
+  }
+
+  &__heading {
+    color: v.$color-pure-white;
+    margin-bottom: 2.4rem;
+  }
+}
+
+.explore {
+  &__cont {
+    padding: $explore-btn-halo;
+    position: relative;
+  }
+
+  &__btn {
+    align-items: center;
+    background-color: v.$color-pure-white;
+    border-radius: 50%;
+    color: black;
+    display: flex;
+    height: $explore-btn-height;
+    justify-content: center;
+    width: $explore-btn-width;
+  }
+
+  &__btn-decoration {
+    @include m.absolute-center;
+
+    border: solid 8.8rem;
+    border-color: color.adjust(v.$color-primary-vlBlue, $alpha: -0.9);
+    border-radius: 50%;
+    height: $explore-btn-height;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+    visibility: hidden;
+    width: $explore-btn-width;
+
+    // put this div below btn or hover on btn will cause flickering
+    z-index: -1;
+  }
+
+  &__btn:hover + &__btn-decoration {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Media queries
+@media (max-width: (f.divide(1350) * 1em)) {
+  .main--home {
+    padding-left: 10rem;
+  }
+}
+
+@media (max-width: (f.divide(1200) * 1em)) {
+  .main--home {
+    padding-left: 8rem;
+  }
+}
+
+@media (max-width: (f.divide(1000) * 1em)) {
+  .body--home {
+    background-image:
+      linear-gradient(
+        to bottom,
+        color.adjust(v.$color-bg-black, $alpha: -0.5) 60%,
+        color.adjust(v.$color-primary-vdBlue, $alpha: -0.7)
+      ),
+      url('/src/assets/img/home/background-home-tablet.jpg');
+    hyphens: auto;
+  }
+
+  .main--home {
+    padding-left: 0;
+
+    &__cont {
+      flex-direction: column;
+    }
+
+    &__content-cont {
+      margin-bottom: 10rem;
+      margin-right: 0;
+    }
+
+    &__btn-cont {
+      align-self: center;
+      margin-bottom: 2rem;
+    }
+
+    .explore {
+      &__btn {
+        margin-left: 0;
+      }
+
+      &__btn-decoration {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: (f.divide(500) * 1em)) {
+  .main--home {
+    padding-left: 0.5rem;
+
+    &__content-cont {
+      max-width: 90%;
+    }
+
+    .explore {
+      &__btn {
+        height: 24rem;
+        width: 24rem;
+      }
+
+      &__btn-decoration {
+        height: 24rem;
+        width: 24rem;
+      }
+    }
+  }
+}
+
+@media (max-width: (f.divide(270) * 1em)) {
+  .main--home {
+    .explore {
+      &__btn {
+        height: 20rem;
+        width: 20rem;
+      }
+
+      &__btn-decoration {
+        height: 10rem;
+        width: 10rem;
+      }
+    }
+  }
+}
