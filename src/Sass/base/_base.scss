@@ -21,6 +21,12 @@ ol {
   list-style: none;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .body {
   background-color: v.$color-primary-vdBlue;
   background-repeat: no-repeat;

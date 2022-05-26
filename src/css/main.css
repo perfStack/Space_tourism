@@ -13,6 +13,12 @@ ol {
   list-style: none;
 }
 
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
 .body {
   background-color: hsl(230deg, 35%, 7%);
   background-repeat: no-repeat;
