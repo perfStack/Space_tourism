@@ -301,7 +301,7 @@ a {
 .active .header__nav-list__link-cont {
   border-color: hsl(0deg, 0%, 100%);
 }
-.header__nav-list__item-link:not(.active):hover .header__nav-list__link-cont {
+.header__nav-list__item:not(.active):hover .header__nav-list__link-cont {
   border-color: rgba(255, 255, 255, 0.5);
 }
 .header__nav-list__num {
@@ -320,7 +320,7 @@ a {
   .active .header__nav-list__link-cont {
     border-color: hsl(0deg, 0%, 100%);
   }
-  .header__nav-list__item-link:not(.active):hover .header__nav-list__link-cont {
+  .header__nav-list__item:not(.active):hover .header__nav-list__link-cont {
     border-color: rgba(255, 255, 255, 0.5);
   }
 }

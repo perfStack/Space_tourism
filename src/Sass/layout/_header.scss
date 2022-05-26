@@ -55,7 +55,7 @@ $list-item__padding: 2.4rem;
         border-color: v.$color-pure-white;
       }
 
-      &__item-link:not(.active):hover &__link-cont {
+      &__item:not(.active):hover &__link-cont {
         border-color: color.adjust(v.$color-pure-white, $alpha: -0.5);
       }
 
@@ -82,7 +82,7 @@ $list-item__padding: 2.4rem;
           border-color: v.$color-pure-white;
         }
 
-        &__item-link:not(.active):hover &__link-cont {
+        &__item:not(.active):hover &__link-cont {
           border-color: color.adjust(v.$color-pure-white, $alpha: -0.5);
         }
       }
