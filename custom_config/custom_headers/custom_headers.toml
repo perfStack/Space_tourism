@@ -1,0 +1,78 @@
+[[headers]]
+# Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+
+  [headers.values]
+    X-Frame-Options = "DENY"
+    x-Content-Type-Options = "nosniff"
+    ReFerrer-Policy = "same-origin"
+    Strict-Transport-Security = "max-age=2y"
+
+[[headers]]
+  for = "/"
+
+  [headers.values]
+    cache-control = """\
+      public, \
+      max-age=1h, \
+      stale-while-revalidate=1h"""
+  
+  # ########################### CSP ################################
+  [headers.Content-Security-Policy]
+    for = "index.html"
+
+    [headers.Content-Security-Policy.values]
+      default-src = "'self'"
+      script-src = "'self'"
+      style-src = "'self'"
+
+# Nested html files
+[[headers]]
+  for = "/pages/html/*"
+
+  [headers.values]
+    cache-control = """\
+      public, \
+      max-age=1d, \
+      stale-while-revalidate=12h"""
+  
+  # ########################### CSP ################################
+  [headers.Content-Security-Policy]
+    for = ""
+
+    [headers.Content-Security-Policy.values]
+      default-src = "'self'"
+      script-src = "'self'"
+      style-src = "'self'"
+
+# Nested css files
+[[headers]]
+  for = "/pages/css/*"
+
+  [headers.values]
+    cache-control = """\
+    public, \
+    max-age=1w, \
+    stale-while-revalidate=12h"""
+
+# Nested js files
+[[headers]]
+  for = "/pages/js/*"
+
+  [headers.values]
+    cache-control = """\
+    public, \
+    max-age=1w, \
+    stale-while-revalidate=12h"""
+
+# Static assets
+[[headers]]
+  for = "/assets/*"
+
+  [headers.values]
+  # Long cache for immutable assets.
+  # All files are hashed therfore can be cache busted. 
+    cache-control = """\
+      public, \
+      max-age=1M, \
+      immutable"""
